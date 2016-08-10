@@ -54,6 +54,9 @@ RUN echo "no" | android create avd \
                 --skin WVGA800 \
                 --sdcard 512M
 
+# android uses this to figure out os bitness 
+export SHELL=/bin/bash
+
 # Cleaning
 RUN apt-get clean
 
