@@ -31,6 +31,7 @@ RUN echo y | android update sdk --no-ui --all --filter extra-android-support | g
 RUN echo y | android update sdk --no-ui --all --filter android-24 | grep 'package installed'
 RUN echo y | android update sdk --no-ui --all --filter android-23 | grep 'package installed'
 
+RUN echo y | android update sdk --no-ui --all --filter build-tools-24.0.1 | grep 'package installed'
 RUN echo y | android update sdk --no-ui --all --filter build-tools-24.0.2 | grep 'package installed'
 
 RUN echo y | android update sdk --no-ui --all --filter sys-img-armeabi-v7a-android-23 | grep 'package installed'
