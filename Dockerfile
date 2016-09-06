@@ -56,7 +56,7 @@ RUN echo "no" | android create avd \
                 --sdcard 512M
 
 # android uses this to figure out os bitness 
-export SHELL=/bin/bash
+RUN export SHELL=/bin/bash
 
 # Cleaning
 RUN apt-get clean
