@@ -28,6 +28,7 @@ ENV PATH ${PATH}:/opt/tools
 RUN echo y | android update sdk --no-ui --all --filter platform-tools | grep 'package installed'
 RUN echo y | android update sdk --no-ui --all --filter extra-android-support | grep 'package installed'
 
+RUN echo y | android update sdk --no-ui --all --filter android-25 | grep 'package installed'
 RUN echo y | android update sdk --no-ui --all --filter android-24 | grep 'package installed'
 RUN echo y | android update sdk --no-ui --all --filter android-23 | grep 'package installed'
 
