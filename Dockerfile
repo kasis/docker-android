@@ -36,7 +36,6 @@ RUN echo y | android update sdk --no-ui --all --filter build-tools-24.0.2 | grep
 RUN echo y | android update sdk --no-ui --all --filter build-tools-24.0.3 | grep 'package installed'
 RUN echo y | android update sdk --no-ui --all --filter build-tools-25.0.2 | grep 'package installed'
 
-RUN echo y | android update sdk --no-ui --all --filter sys-img-armeabi-v7a-android-23 | grep 'package installed'
 
 RUN echo y | android update sdk --no-ui --all --filter extra-android-m2repository | grep 'package installed'
 RUN echo y | android update sdk --no-ui --all --filter extra-google-m2repository | grep 'package installed'
@@ -48,14 +47,14 @@ RUN which adb
 RUN which android
 
 # Create emulator
-RUN echo "no" | android create avd \
-                --force \
-                --device "Nexus 5" \
-                --name test \
-                --target android-23 \
-                --abi armeabi-v7a \
-                --skin WVGA800 \
-                --sdcard 512M
+# RUN echo "no" | android create avd \
+#                --force \
+#                --device "Nexus 5" \
+#                --name test \
+#                --target android-23 \
+#                --abi armeabi-v7a \
+#                --skin WVGA800 \
+#               --sdcard 512M
 
 # android uses this to figure out os bitness 
 RUN export SHELL=/bin/bash
