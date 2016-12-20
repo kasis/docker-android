@@ -44,8 +44,8 @@ RUN echo y | android update sdk --no-ui --all --filter extra-google-google_play_
 
 RUN echo y | android update sdk --no-ui --all --filter addon-google_apis-google-23 | grep 'package installed'
 
-RUN which adb
-RUN which android
+# RUN which adb
+# RUN which android
 
 # Create emulator
 # RUN echo "no" | android create avd \
