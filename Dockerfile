@@ -20,7 +20,7 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get install -y --force
 RUN cd /opt && wget --output-document=android-sdk.zip --quiet https://dl.google.com/android/repository/tools_r25.2.3-linux.zip && unzip android-sdk.zip && rm -f android-sdk.zip
 
 # Setup environment
-ENV ANDROID_HOME /opt/android-sdk-linux
+ENV ANDROID_HOME /opt/android-sdk
 ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
 
 # Install sdk elements
