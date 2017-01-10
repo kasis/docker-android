@@ -17,15 +17,16 @@ RUN apt-get update && apt-get install -y unzip
 RUN dpkg --add-architecture i386 && apt-get update && apt-get install -y --force-yes expect git wget libc6-i386 lib32stdc++6 lib32gcc1 lib32ncurses5 lib32z1 python curl && apt-get clean && rm -fr /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install Android SDK
-RUN cd /opt && wget --output-document=android-sdk.zip --quiet https://dl.google.com/android/repository/tools_r25.2.3-linux.zip && unzip android-sdk.zip && rm -f android-sdk.zip
+RUN cd /opt && wget --output-document=android-sdk.zip --quiet https://dl.google.com/android/repository/tools_r25.2.3-linux.zip && unzip android-sdk.zip 
 
 # Setup environment
-ENV ANDROID_HOME /opt/android-sdk
+ENV ANDROID_HOME /opt/android-sdk-linux
+RUN mkdir -p ${ANDROID_HOME}
+RUN cd /opt && mv tools/ ${ANDROID_HOME}/tools/
+RUN cd /opt && rm -f android-sdk-tools.zip
+
 ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
 
-# Install sdk elements
-COPY tools /opt/tools
-ENV PATH ${PATH}:/opt/tools
 
 RUN echo y | android update sdk --no-ui --all --filter platform-tools | grep 'package installed'
 
